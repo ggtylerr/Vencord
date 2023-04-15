@@ -16,8 +16,17 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import { definePluginSettings } from "@api/settings";
 import { Devs } from "@utils/constants";
-import definePlugin from "@utils/types";
+import definePlugin, { OptionType } from "@utils/types";
+
+const settings = definePluginSettings({
+    dmCalls: {
+        type: OptionType.BOOLEAN,
+        description: "Require double click on voice and video call buttons (in DMs)",
+        default: true,
+    },
+});
 
 export default definePlugin({
     name: "MisclickPrevention",
@@ -27,12 +36,14 @@ export default definePlugin({
         {
             // todo: actually put in real code instead of example code lol
             find: "",
+            predicate: () => true,
             replacement: {
                 match: /(\w+)\.isStaff=function\(\){return\s*!1};/,
                 replace: "$1.isStaff=function(){return true};",
             },
         }
-    ]
+    ],
+    settings,
 });
 
 let time = Date.now();
