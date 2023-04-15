@@ -259,7 +259,7 @@ export const Devs = /* #__PURE__*/ Object.freeze({
         id: 492949202121261067n
     },
     Tyler: {
-        name: "\\\\GGTyler\\\\",
+        name: "ggtyler",
         id: 143117463788191746n
     },
     RyanCaoDev: {
