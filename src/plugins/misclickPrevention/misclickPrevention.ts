@@ -36,7 +36,7 @@ export default definePlugin({
         {
             // todo: actually put in real code instead of example code lol
             find: "",
-            predicate: () => true,
+            predicate: () => settings.store.dmCalls,
             replacement: {
                 match: /(\w+)\.isStaff=function\(\){return\s*!1};/,
                 replace: "$1.isStaff=function(){return true};",
